@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0a0a0f">
+<title>网赚项目库 - 每日更新</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- 顶栏 -->
+  <div class="header">
+    <div class="header-top">
+      <h1><span class="emoji">💰</span>网赚项目库</h1>
+      <span class="update-badge" id="update-badge">今日已更新</span>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num" id="stat-total">0</div><div class="stat-label">收录项目</div></div>
+      <div class="stat"><div class="stat-num" id="stat-new">0</div><div class="stat-label">今日新增</div></div>
+      <div class="stat"><div class="stat-num" id="stat-fav">0</div><div class="stat-label">我的收藏</div></div>
+    </div>
+  </div>
+
+  <!-- 搜索 -->
+  <div class="search-bar">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="搜索项目、平台、关键词..." oninput="renderList()">
+    </div>
+  </div>
+
+  <!-- 分类 -->
+  <div class="cats" id="cats"></div>
+
+  <!-- 排序 -->
+  <div class="sort-bar">
+    <span class="sort-label">排序:</span>
+    <button class="sort-btn active" data-sort="hot" onclick="setSort('hot',this)">🔥 热度</button>
+    <button class="sort-btn" data-sort="id" onclick="setSort('id',this)">🕐 最新</button>
+    <button class="sort-btn" data-sort="difficulty" onclick="setSort('difficulty',this)">⭐ 易上手</button>
+  </div>
+
+  <!-- 项目列表 -->
+  <div class="projects" id="projects"></div>
+
+  <!-- 底部导航 -->
+  <div class="bottom-nav">
+    <div class="nav-item active" onclick="switchTab('home',this)"><span class="nav-icon">🏠</span>全部项目</div>
+    <div class="nav-item" onclick="switchTab('fav',this)"><span class="nav-icon">⭐</span>我的收藏</div>
+    <div class="nav-item" onclick="switchTab('log',this)"><span class="nav-icon">📜</span>更新日志</div>
+  </div>
+
+  <!-- 更新日志弹窗 -->
+  <div class="modal-overlay" id="log-modal" onclick="closeLog(event)">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">📜 每日更新日志</span>
+        <button class="modal-close" onclick="closeLog()">×</button>
+      </div>
+      <div id="log-list"></div>
+    </div>
+  </div>
+
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
